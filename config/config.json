@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "03399",
-    "database": "postgres",
-    "host": "localhost",
+    "username": "alvin_car_rental",
+    "password": "vWfmRPyGyFc1n8OLu8lP8PoxcRW0i1XR",
+    "database": "car_rental_service",
+    "host": "dpg-d1cn51mmcj7s73eson60-a",
     "dialect": "postgres"
   },
   "test": {
