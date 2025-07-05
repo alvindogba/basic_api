@@ -3,22 +3,24 @@ import path from 'path';
 import { Sequelize, DataTypes } from 'sequelize';
 import { fileURLToPath, pathToFileURL } from 'url';
 import process from 'process';
-import configFile from '../config/config.json' with { type: 'json' };
+import config from '../config/config.js';
 
+
+//Es compactibility
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = configFile[env];
+const dbconfig = config[env];
 
 const db = {};
 
 let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+if (dbconfig.use_env_variable) {
+  sequelize = new Sequelize(process.env[dbconfig.use_env_variable], dbconfig);
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
+  sequelize = new Sequelize(dbconfig.database, dbconfig.username, dbconfig.password, dbconfig);
 }
 
 // Load all model files except this file and test files
