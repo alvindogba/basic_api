@@ -1,8 +1,9 @@
 import express from "express"
-import { creatNewCustormer } from "../controller/custormerController.js"
+import { createNewCustomer, customerLogIn} from "../controller/custormerController.js"
 const customerRouter = express()
 
 //Creating new customer
-customerRouter.post("/register", creatNewCustormer)
+customerRouter.post("/signup", createNewCustomer)
+customerRouter.post("/login", customerLogIn)
 
 export default customerRouter
